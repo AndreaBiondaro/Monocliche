@@ -1,3 +1,14 @@
+import uuid
+
+
 class Player:
     def __init__(self):
-        self._name = None
+        self.id = uuid.uuid4()
+        self.name = None
+        self.budget = 0
+        self.properties = []
+        self.in_jail = False
+        self.my_turn = False
+        self.position = 0
+        self.prison_release_card = False
+        self.exchanges = []
