@@ -12,3 +12,9 @@ class Player:
         self.position = 0
         self.prison_release_card = False
         self.exchanges = []
+
+    def __eq__(self, other):
+        if not isinstance(other, Player):
+            return False
+
+        return self.id == other.id
