@@ -3,7 +3,7 @@ from abc import abstractmethod
 from monocliche.model import Box, Player
 
 
-class Property(Box):
+class Property(Box.Box):
     """
     It manages the behavior of all the squares on the board that can be owned by a player.
     """
