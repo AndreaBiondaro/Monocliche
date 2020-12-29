@@ -46,16 +46,20 @@ class Region(Property):
     def build_structure(self):
         """
         Create a new structure on the property.
-        The new structure can be built, only if the property is not mortgaged
+        The new structure can be built, only if the land is not mortgaged, the player owns the whole group
         or does not exceed the 4 structures already built.
         """
         if not super().mortgaged:
-            if (self.structures + 1) <= Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS:
-                self.structures += 1
+            if super().is_group_owned_by_player():
+                if (self.structures + 1) <= Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS:
+                    self.structures += 1
+                else:
+                    # TODO: create a label to use in the front-end that can handle multilanguage
+                    raise Exception(
+                        f"It is not possible to build more than {Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS} structures.")
             else:
                 # TODO: create a label to use in the front-end that can handle multilanguage
-                raise Exception(
-                    f"It is not possible to build more than {Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS} structures.")
+                raise Exception("You don't own all the properties")
         else:
             # TODO: create a label to use in the front-end that can handle multilanguage
             raise Exception("You cannot build on a mortgaged property.")
