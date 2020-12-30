@@ -17,7 +17,10 @@ class Company(Property):
         """
         # TODO: Understanding how to get the dice roll
         dice_value = 0
-        if super().is_group_owned_by_player():
-            return dice_value * Company.INCOME_MULTIPLIER_BOTH_COMPANY
+        if self.owner is not None:
+            if super().is_group_owned_by_player():
+                return dice_value * Company.INCOME_MULTIPLIER_BOTH_COMPANY
+            else:
+                return dice_value * Company.INCOME_MULTIPLIER
         else:
-            return dice_value * Company.INCOME_MULTIPLIER
+            return 0

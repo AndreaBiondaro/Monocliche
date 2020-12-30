@@ -30,18 +30,20 @@ class Region(Property):
         On the other hand, if there is even just one structure, the rent is calculated based on
         the value indicated in the contract.
         """
-
-        if self.structures == 0:
-            if super().is_group_owned_by_player():
-                return self.base_rent * Region.INCOME_MULTIPLIER_FULL_GROUP
+        if self.owner is not None:
+            if self.structures == 0:
+                if super().is_group_owned_by_player():
+                    return self.base_rent * Region.INCOME_MULTIPLIER_FULL_GROUP
+                else:
+                    return self.base_rent
             else:
-                return self.base_rent
+                return {
+                    1: self.income_with_house,
+                    2: self.income_with_two_house,
+                    3: self.income_with_three_house
+                }.get(self.structures, self.income_with_hotel)
         else:
-            return {
-                1: self.income_with_house,
-                2: self.income_with_two_house,
-                3: self.income_with_three_house
-            }.get(self.structures, self.income_with_hotel)
+            return 0
 
     def build_structure(self):
         """

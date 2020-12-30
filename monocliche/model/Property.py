@@ -28,9 +28,10 @@ class Property(Box.Box):
         Returns the number of properties owned by the same player as this property
         """
         counter = 0
-        for prop in self.property_group:
-            if prop.owner == self.owner:
-                counter += 1
+        if self.owner is not None:
+            for prop in self.property_group:
+                if prop.owner == self.owner:
+                    counter += 1
 
         return counter
 
