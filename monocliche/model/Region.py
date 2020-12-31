@@ -51,7 +51,7 @@ class Region(Property):
         The new structure can be built, only if the land is not mortgaged, the player owns the whole group
         or does not exceed the 4 structures already built.
         """
-        if not super().mortgaged:
+        if not self.mortgaged:
             if super().is_group_owned_by_player():
                 if (self.structures + 1) <= Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS:
                     self.structures += 1
@@ -71,7 +71,7 @@ class Region(Property):
         Destroys a property structure.
         The structure can only be destroyed if the property is not mortgaged or does not go to a negative value.
         """
-        if not super().mortgaged:
+        if not self.mortgaged:
             if (self.structures - 1) >= 0:
                 self.structures -= 1
             else:
