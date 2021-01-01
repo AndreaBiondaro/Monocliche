@@ -1,7 +1,7 @@
-from monocliche.model.Property import Property
+from monocliche.model import Property, Game
 
 
-class Region(Property):
+class Region(Property.Property):
     INCOME_MULTIPLIER_FULL_GROUP = 2
     MAXIMUM_NUMBER_OF_CONSTRUCTIONS = 4
 
@@ -21,7 +21,7 @@ class Region(Property):
         self.structures = 0
         super().__init__(name, price, mortgaged_value)
 
-    def calculate_rent(self) -> int:
+    def calculate_rent(self, game: Game) -> int:
         """
         The calculation of the rent for a territory, is calculated based on how many structures are built
         or if the player owns the whole group of properties.

@@ -1,3 +1,4 @@
+from monocliche.model import Game
 from monocliche.model.Property import Property
 
 
@@ -11,7 +12,7 @@ class Station(Property):
         self.base_rent = base_rent
         super().__init__(name, price, mortgaged_value)
 
-    def calculate_rent(self) -> int:
+    def calculate_rent(self, game: Game) -> int:
         """
         The calculation of the rent for the stations is based on the number of stations owned by the player.
         """
