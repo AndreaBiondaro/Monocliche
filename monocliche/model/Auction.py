@@ -9,4 +9,10 @@ class Auction:
         self.start_time = start_time
         self.end_time = end_time
         self.auction_property = auction_property
-        self.offers = []
+        self.offers: list[Bid] = None
+
+    def add_bid(self, bid: Bid):
+        if self.offers is None:
+            self.offers = []
+
+        self.offers.append(bid)
