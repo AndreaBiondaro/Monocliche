@@ -26,6 +26,12 @@ class CompanyTest(unittest.TestCase):
         company2.owner = player
         self.assertEqual(50, company2.calculate_rent(game))
 
+        game.dice_roll_result = None
+        self.assertRaises(AttributeError, company2.calculate_rent, game)
+
+        game = None
+        self.assertRaises(AttributeError, company2.calculate_rent, game)
+
 
 if __name__ == '__main__':
     unittest.main()
