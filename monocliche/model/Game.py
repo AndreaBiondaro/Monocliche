@@ -2,7 +2,6 @@ from uuid import uuid4
 
 from monocliche import LinkedPlayers
 from monocliche.model import Board
-from monocliche.model import Player
 from monocliche.model.Dice import Dice
 from monocliche.model.DiceRollResult import DiceRollResult
 
@@ -14,7 +13,6 @@ class Game:
         self.completed = False
         self.board: Board = board
         self.players: LinkedPlayers = players
-        self.current_player_turn: Player = None
         self.dice = Dice()
         self.dice_roll_result = DiceRollResult()
 
