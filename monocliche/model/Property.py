@@ -1,6 +1,6 @@
 from abc import abstractmethod
 
-from monocliche.model import Box, Player
+from monocliche.model import Box, Player, Game
 
 
 class Property(Box.Box):
@@ -17,7 +17,7 @@ class Property(Box.Box):
         super().__init__(name)
 
     @abstractmethod
-    def calculate_rent(self) -> int:
+    def calculate_rent(self, game: Game) -> int:
         """
         Calculates the rent that the player must give to the player who owns the property.
         """

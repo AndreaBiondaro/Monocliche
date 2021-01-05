@@ -1,5 +1,6 @@
 import unittest
 
+from monocliche.model.Game import Game
 from monocliche.model.Player import Player
 from monocliche.model.Region import Region
 
@@ -7,8 +8,8 @@ from monocliche.model.Region import Region
 class RegionTest(unittest.TestCase):
 
     def test_calculate_rent(self):
-        player1 = Player()
-        player2 = Player()
+        player1 = Player("player1")
+        player2 = Player("player2")
 
         region1 = Region("region1", price=0, mortgaged_value=0, house_price=5, hotel_price=10, base_rent=2,
                          income_with_house=4, income_with_two_house=6, income_with_three_house=8, income_with_hotel=10)
@@ -25,32 +26,34 @@ class RegionTest(unittest.TestCase):
         region3.property_group = property_group
         region4.property_group = property_group
 
-        self.assertEqual(0, region1.calculate_rent())
+        game = Game()
+
+        self.assertEqual(0, region1.calculate_rent(game))
 
         region1.owner = player1
-        self.assertEqual(2, region1.calculate_rent())
+        self.assertEqual(2, region1.calculate_rent(game))
 
         region2.owner = player1
-        self.assertEqual(2, region2.calculate_rent())
+        self.assertEqual(2, region2.calculate_rent(game))
 
         region3.owner = player1
-        self.assertEqual(2, region3.calculate_rent())
+        self.assertEqual(2, region3.calculate_rent(game))
 
         region4.owner = player2
-        self.assertEqual(2, region4.calculate_rent())
+        self.assertEqual(2, region4.calculate_rent(game))
 
         region4.owner = player1
-        self.assertEqual(4, region4.calculate_rent())
-        self.assertEqual(4, region2.calculate_rent())
+        self.assertEqual(4, region4.calculate_rent(game))
+        self.assertEqual(4, region2.calculate_rent(game))
 
         region1.structures = 1
-        self.assertEqual(4, region1.calculate_rent())
+        self.assertEqual(4, region1.calculate_rent(game))
 
         region1.structures = 4
-        self.assertEqual(10, region1.calculate_rent())
+        self.assertEqual(10, region1.calculate_rent(game))
 
     def test_build_structure(self):
-        player = Player()
+        player = Player("player")
 
         region1 = Region("region1", price=0, mortgaged_value=0, house_price=5, hotel_price=10, base_rent=2,
                          income_with_house=4, income_with_two_house=6, income_with_three_house=8, income_with_hotel=10)
