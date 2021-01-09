@@ -3,7 +3,7 @@ In this project we're trying to implement the iconic board game, monopoly.
 Furthermore the project aims to test and improve our project management skills and to learn the python language
 
 **Please Note:**
-In this repository user interaction with the game is not managed, in order to allow a better separation of the architecture, allowing that the business logic cannot be affected by I / O choices.
+In this repository user interaction with the game is not managed, in order to allow a better separation of the architecture, allowing that the business logic cannot be affected by I/O choices.
 
 ## Contributing
 We accept any kind of help, whether it comes from those who already have experience, from those like us who want to learn python or from those who want to gain experience.
