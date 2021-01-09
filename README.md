@@ -8,6 +8,8 @@ In this repository user interaction with the game is not managed, in order to al
 ## Contributing
 We accept any kind of help, whether it comes from those who already have experience, from those like us who want to learn python or from those who want to gain experience.
 
+For a more detailed explanation read [How to Contribute?](/CONTRIBUTING.md)
+
 To see the documentation we wrote use the [doc](./doc/) folder.
 
 ## Setting up the project
