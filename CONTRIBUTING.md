@@ -6,7 +6,9 @@
 2. Comment on issue you want to work on.
 3. Wait for issue to be assigned to you
 4. Create a new branch in your forked repo and start working on your code
-5. In addition to the code, it is preferable to add comments to improve understanding of logic that could be complex.
+5. In addition to the code, you need to add:
+  * unit test
+  * code documentation
 6. Create a pull request and mention the issue number.
 8. Wait for it to get reviewed and approved by maintainers
 
