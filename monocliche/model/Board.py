@@ -8,3 +8,6 @@ class Board:
         self.community_chest_deck: Deck = None
         self.chance_deck: Deck = None
         self.auction: Auction = None
+
+    def initialize_board(self):
+        pass
