@@ -45,7 +45,7 @@ class Game:
             self.players = LinkedPlayers()
 
         new_player = Player(player_name)
-        self.players.add(player_name)
+        self.players.add(new_player)
 
         return new_player
 
@@ -84,15 +84,16 @@ class Game:
     def check_game_is_over(self) -> bool:
         """Check if all but one of the players are bankrupt, if so then the remaining player is the winner."""
 
-        # TODO
+        # TODO : implements
 
-        return False
+        # TODO : to be removed because it is not needed
+        return self.status == GameStatus.COMPLETED
 
     def complete_match(self) -> Player:
         """Forces the match to complete and returns the player who is richer."""
 
-        # TODO
+        # TODO : implements
 
         self.status = GameStatus.COMPLETED
 
-        pass
+        return self.players.iterate()[0]

@@ -1,6 +1,6 @@
-from typing import Any
+from typing import Any, Optional
 
-from monocliche.model import Player
+from monocliche.model.Player import Player
 
 
 class Node:
@@ -26,7 +26,7 @@ class LinkedPlayers:
         self.size = 0
 
     @property
-    def current_player(self) -> Player:
+    def current_player(self) -> Optional[Player]:
         """
         Returns the player of the current turn.
         """
@@ -36,7 +36,7 @@ class LinkedPlayers:
             return None
 
     @property
-    def first_player(self) -> Player:
+    def first_player(self) -> Optional[Player]:
         """
         Returns the first player on the list.
         """
