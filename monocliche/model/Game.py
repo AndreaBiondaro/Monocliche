@@ -55,14 +55,11 @@ class Game:
         if self.status == GameStatus.RUNNING:
             # TODO: create a label to use in the front-end that can handle multilanguage
             raise Exception("It is not possible to leave a game that has already started")
-
-        start_len = self.players.size
+        elif self.players.size == 0:
+            # TODO: create a label to use in the front-end that can handle multilanguage
+            raise Exception("There is no player to remove")
 
         self.players.remove(player_to_remove)
-
-        if start_len == self.players.size:
-            # TODO: create a label to use in the front-end that can handle multilanguage
-            raise Exception("Error removing player from game")
 
     def passes_turn(self) -> Player:
         """Manages the passing of the turn to the next player."""
@@ -80,6 +77,9 @@ class Game:
         self.board.initialize_board()
 
         self.status = GameStatus.RUNNING
+
+        # Need to initialize the first player
+        self.players.next_player()
 
     def check_game_is_over(self) -> bool:
         """Check if all but one of the players are bankrupt, if so then the remaining player is the winner."""

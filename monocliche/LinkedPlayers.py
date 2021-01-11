@@ -23,7 +23,11 @@ class LinkedPlayers:
         self.__current_node = None
         # It keeps track of where the last iteration stopped
         self.__temp_iterator = None
-        self.size = 0
+        self.__size = 0
+
+    @property
+    def size(self):
+        return self.__size
 
     @property
     def current_player(self) -> Optional[Player]:
@@ -66,7 +70,7 @@ class LinkedPlayers:
             head.prev = node
             self.__last = node
 
-        self.size += 1
+        self.__size += 1
 
     def remove(self, player: Player):
         """
@@ -75,6 +79,7 @@ class LinkedPlayers:
         if self.__last is not None:
             if self.__last.next == self.__last:
                 self.__last = None
+                self.__size -= 1
             else:
                 head = self.__last.next
                 temp = head
@@ -87,7 +92,7 @@ class LinkedPlayers:
                         prev.next = next
                         next.prev = prev
 
-                        self.size -= 1
+                        self.__size -= 1
                         break
                     else:
                         temp = temp.next
