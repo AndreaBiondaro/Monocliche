@@ -97,3 +97,20 @@ class Game:
         self.status = GameStatus.COMPLETED
 
         return self.players.iterate()[0]
+
+    def roll_dice(self) -> int:
+        """Roll the dice and update the player's position."""
+        first_roll = self.dice.roll()
+        second_roll = self.dice.roll()
+
+        self.dice_roll_result.update_dice_result(first_roll, second_roll)
+
+        current_player: Player = self.players.current_player
+
+        if self.dice_roll_result.double_value_counter == 3:
+            current_player.in_jail = True
+            # TODO : need to update the position of player to jail
+        else:
+            current_player.update_position(self.dice_roll_result.dice_result)
+
+        return current_player.position

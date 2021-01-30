@@ -9,8 +9,8 @@ class Region(Property):
     def __init__(self, name: str, price: int, mortgaged_value: int, house_price: int, hotel_price: int, base_rent: int,
                  income_with_house: int, income_with_two_house: int, income_with_three_house: int,
                  income_with_hotel: int):
-        self.housePrice = house_price
-        self.hotelPrice = hotel_price
+        self.house_price = house_price
+        self.hotel_price = hotel_price
 
         self.base_rent = base_rent
         self.income_with_house = income_with_house
@@ -45,6 +45,22 @@ class Region(Property):
                 }.get(self.structures, self.income_with_hotel)
         else:
             return 0
+
+    def construction_cost(self) -> int:
+        """Returns the cost of building a structure, based on the number of structures present."""
+
+        # if you already have 3 houses, the next one is a hotel, so it returns the cost of a hotel.
+        if self.structures < 3:
+            return self.house_price
+        else:
+            return self.hotel_price
+
+    def demolition_cost(self) -> int:
+        """Returns the cost of demolishing a structure, based on the number of structures present."""
+        if self.structures == Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS:
+            return self.hotel_price
+        else:
+            return self.house_price
 
     def build_structure(self):
         """
