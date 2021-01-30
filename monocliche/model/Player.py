@@ -4,10 +4,10 @@ from monocliche.model import Property, Exchange
 
 
 class Player:
-    def __init__(self, name: str, budget: int = 0):
+    def __init__(self, name: str):
         self.__id = uuid4()
         self.name: str = name
-        self.budget: int = budget
+        self.budget: int = 0
         self.properties: list[Property] = []
         self.in_jail = False
         self.my_turn = False

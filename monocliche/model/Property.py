@@ -1,9 +1,11 @@
 from abc import abstractmethod
+from typing import Optional
 
-from monocliche.model import Box, Player, Game
+from monocliche.model.Box import Box
+from monocliche.model import Player, DiceRollResult
 
 
-class Property(Box.Box):
+class Property(Box):
     """
     It manages the behavior of all the squares on the board that can be owned by a player.
     """
@@ -11,13 +13,13 @@ class Property(Box.Box):
     def __init__(self, name: str, price: int, mortgaged_value: int):
         self.price = price
         self.mortgaged_value = mortgaged_value
-        self.owner: Player = None
+        self.owner: Optional[Player] = None
         self.mortgaged = False
         self.property_group: list[Property] = []
         super().__init__(name)
 
     @abstractmethod
-    def calculate_rent(self, game: Game) -> int:
+    def calculate_rent(self, dice_roll_result: DiceRollResult) -> int:
         """
         Calculates the rent that the player must give to the player who owns the property.
         """
