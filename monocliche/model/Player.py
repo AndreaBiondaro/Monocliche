@@ -1,6 +1,8 @@
 from uuid import uuid4
 from math import ceil
 
+from monocliche import Constants
+
 from monocliche.model.Exchange import Exchange
 from monocliche.model.Property import Property
 from monocliche.model.Region import Region
@@ -34,8 +36,7 @@ class Player:
             prop.owner = self
             self.properties.append(prop)
         else:
-            # TODO: create a label to use in the front-end that can handle multilanguage
-            raise Exception("You do not have enough money to buy the property.")
+            raise Exception(Constants.EXCEPTION_NOT_ENOUGH_MONEY)
 
     def sell_property(self, prop: Property):
         """Sells a property and updates the player's balance."""
@@ -59,11 +60,9 @@ class Player:
                 finally:
                     pass
             else:
-                # TODO: create a label to use in the front-end that can handle multilanguage
-                raise Exception("You don't have enough money to build a structure on this property.")
+                raise Exception(Constants.EXCEPTION_NOT_ENOUGH_MONEY)
         else:
-            # TODO: create a label to use in the front-end that can handle multilanguage
-            raise Exception("It is not possible to build structures on this type of property.")
+            raise Exception(Constants.EXCEPTION_PROPERTY_TYPE_NOT_SUPPORT_THE_ACTION)
 
     def destroy_structure(self, region: Region):
         """
@@ -80,8 +79,7 @@ class Player:
             finally:
                 pass
         else:
-            # TODO: create a label to use in the front-end that can handle multilanguage
-            raise Exception("It is not possible to destroy structures on this type of property.")
+            raise Exception(Constants.EXCEPTION_PROPERTY_TYPE_NOT_SUPPORT_THE_ACTION)
 
     def property_mortgage(self, prop: Property):
         """
@@ -95,8 +93,7 @@ class Player:
             prop.mortgaged = True
             self.update_budget(prop.mortgaged)
         else:
-            # TODO: create a label to use in the front-end that can handle multilanguage
-            raise Exception("The property is already mortgaged.")
+            raise Exception(Constants.EXCEPTION_PROPERTY_ALREADY_MORTGAGED)
 
     def redeem_property_mortgage(self, prop: Property):
         """
@@ -107,8 +104,7 @@ class Player:
             prop.mortgaged = False
             self.update_budget(-(ceil((prop.mortgaged_value * 10) / 100) + prop.mortgaged_value))
         else:
-            # TODO: create a label to use in the front-end that can handle multilanguage
-            raise Exception("The property is not mortgaged")
+            raise Exception(Constants.EXCEPTION_PROPERTY_NOT_MORTGAGED)
 
     def can_update_budget(self, amount: int) -> bool:
         """

@@ -1,5 +1,7 @@
 from uuid import uuid4
 
+from monocliche import Constants
+
 from monocliche.LinkedPlayers import LinkedPlayers
 from monocliche.Uitls import Utils
 from monocliche.model.Board import Board
@@ -35,11 +37,9 @@ class Game:
         """Add a new player to the game."""
 
         if self.status == GameStatus.RUNNING:
-            # TODO: create a label to use in the front-end that can handle multilanguage
-            raise Exception("It is not possible to participate in a game that has already started")
+            raise Exception(Constants.EXCEPTION_GAME_ALREADY_STARTED)
         elif self.status == GameStatus.COMPLETED:
-            # TODO: create a label to use in the front-end that can handle multilanguage
-            raise Exception("It is not possible to participate in a match that has already ended")
+            raise Exception(Constants.EXCEPTION_GAME_ALREADY_OVER)
 
         if self.players is None:
             self.players = LinkedPlayers()
@@ -53,11 +53,9 @@ class Game:
         """Remove a player from the game."""
 
         if self.status == GameStatus.RUNNING:
-            # TODO: create a label to use in the front-end that can handle multilanguage
-            raise Exception("It is not possible to leave a game that has already started")
+            raise Exception(Constants.EXCEPTION_CANNOT_LEAVE_GAME_ALREADY_STARTED)
         elif self.players.size == 0:
-            # TODO: create a label to use in the front-end that can handle multilanguage
-            raise Exception("There is no player to remove")
+            raise Exception(Constants.EXCEPTION_NO_PLAYER_PRESENT)
 
         self.players.remove(player_to_remove)
 

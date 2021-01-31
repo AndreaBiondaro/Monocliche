@@ -1,3 +1,5 @@
+from monocliche import Constants
+
 from monocliche.model.Property import Property
 from monocliche.model import DiceRollResult
 
@@ -73,15 +75,11 @@ class Region(Property):
                 if (self.structures + 1) <= Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS:
                     self.structures += 1
                 else:
-                    # TODO: create a label to use in the front-end that can handle multilanguage
-                    raise Exception(
-                        f"It is not possible to build more than {Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS} structures.")
+                    raise Exception(Constants.EXCEPTION_MAXIMUM_CONSTRUCTION_LIMIT)
             else:
-                # TODO: create a label to use in the front-end that can handle multilanguage
-                raise Exception("You don't own all the properties")
+                raise Exception(Constants.EXCEPTION_NOT_OWN_ALL_THE_PROPERTY_OF_GROUP)
         else:
-            # TODO: create a label to use in the front-end that can handle multilanguage
-            raise Exception("You cannot build on a mortgaged property.")
+            raise Exception(Constants.EXCEPTION_NOT_POSSIBLE_TO_BUILD_ON_MORTGAGE_PROPERTY)
 
     def destroy_structure(self):
         """
@@ -92,8 +90,6 @@ class Region(Property):
             if (self.structures - 1) >= 0:
                 self.structures -= 1
             else:
-                # TODO: create a label to use in the front-end that can handle multilanguage
-                raise Exception("It is not possible to destroy properties if they no longer exist.")
+                raise Exception(Constants.EXCEPTION_NO_PROPERTIES_TO_DESTROY)
         else:
-            # TODO: create a label to use in the front-end that can handle multilanguage
-            raise Exception("It is not possible to destroy a structure from a mortgaged property.")
+            raise Exception(Constants.EXCEPTION_NOT_POSSIBLE_TO_DESTROY_ON_MORTGAGE_PROPERTY)
