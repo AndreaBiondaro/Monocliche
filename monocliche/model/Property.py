@@ -1,6 +1,8 @@
 from abc import abstractmethod
 from typing import Optional
 
+from monocliche import Constants
+
 from monocliche.model.Box import Box
 from monocliche.model import Player, DiceRollResult
 
@@ -14,7 +16,7 @@ class Property(Box):
         self.price = price
         self.mortgaged_value = mortgaged_value
         self.owner: Optional[Player] = None
-        self.mortgaged = False
+        self.__mortgaged = False
         self.property_group: list[Property] = []
         super().__init__(name)
 
@@ -24,6 +26,28 @@ class Property(Box):
         Calculates the rent that the player must give to the player who owns the property.
         """
         pass
+
+    @property
+    def mortgaged(self):
+        return self.__mortgaged
+
+    @mortgaged.setter
+    def mortgaged(self, mortgaged: bool):
+        if not mortgaged:
+            # Redeem the property
+            if self.__mortgaged:
+                self.__mortgaged = False
+            else:
+                raise Exception(Constants.EXCEPTION_PROPERTY_NOT_MORTGAGED)
+        else:
+            # Mortgage the property
+            if not self.__mortgaged:
+                # TODO: A land can only be mortgaged if the whole group to whom
+                # belongs is devoid of constructions. Where there are buildings, they
+                # they must be sold to the Bank which will pay them half of their purchase price
+                self.__mortgaged = True
+            else:
+                raise Exception(Constants.EXCEPTION_PROPERTY_ALREADY_MORTGAGED)
 
     def count_properties_owned_by_player(self):
         """
@@ -42,3 +66,13 @@ class Property(Box):
         Returns true if the owner of this property owns all properties of the group, otherwise false
         """
         return len(self.property_group) == self.count_properties_owned_by_player()
+
+    def check_if_properties_have_buildings(self) -> bool:
+        """Check if there is at least one building for a group property"""
+
+        if isinstance(self, Region):
+            for region in self.property_group:
+                if region.has_construction():
+                    return True
+        else:
+            return False

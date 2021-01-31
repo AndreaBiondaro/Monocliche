@@ -48,17 +48,14 @@ class Region(Property):
         else:
             return 0
 
-    def construction_cost(self) -> int:
-        """Returns the cost of building a structure, based on the number of structures present."""
+    def has_construction(self) -> bool:
+        """Indicates if there are any constructions on the space."""
 
-        # if you already have 3 houses, the next one is a hotel, so it returns the cost of a hotel.
-        if self.structures < 3:
-            return self.house_price
-        else:
-            return self.hotel_price
+        return self.structures > 0
 
-    def demolition_cost(self) -> int:
-        """Returns the cost of demolishing a structure, based on the number of structures present."""
+    def structure_cost(self) -> int:
+        """Based on the number of structures built, it returns the cost."""
+
         if self.structures == Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS:
             return self.hotel_price
         else:
@@ -81,7 +78,7 @@ class Region(Property):
         else:
             raise Exception(Constants.EXCEPTION_NOT_POSSIBLE_TO_BUILD_ON_MORTGAGE_PROPERTY)
 
-    def destroy_structure(self):
+    def destroy_structure(self) -> int:
         """
         Destroys a property structure.
         The structure can only be destroyed if the property is not mortgaged or does not go to a negative value.

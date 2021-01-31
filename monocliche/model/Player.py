@@ -50,16 +50,13 @@ class Player:
         To perform this operation the player must have enough money, otherwise it is not possible to continue.
         """
         if isinstance(region, Region):
-            structure_cost = -region.construction_cost()
-            if self.can_update_budget(structure_cost):
-                try:
-                    # This is done in a try, in order to be sure that the player's balance is updated
-                    # only if it is done correctly.
-                    region.build_structure()
-                    self.update_budget(structure_cost)
-                finally:
-                    pass
-            else:
+            # First proceeds with the construction
+            region.build_structure()
+
+            # Check if the player has enough money
+            if not self.can_update_budget(-region.structure_cost()):
+                # If the player doesn't have enough money, he removes the newly created structure
+                region.destroy_structure()
                 raise Exception(Constants.EXCEPTION_NOT_ENOUGH_MONEY)
         else:
             raise Exception(Constants.EXCEPTION_PROPERTY_TYPE_NOT_SUPPORT_THE_ACTION)
@@ -70,7 +67,7 @@ class Player:
         From this operation, the player receives half the value of the structure from the bank.
         """
         if isinstance(region, Region):
-            structure_cost = region.demolition_cost()
+            structure_cost = region.structure_cost()
             try:
                 # This is done in a try, in order to be sure that the player's balance is updated
                 # only if it is done correctly.
@@ -86,25 +83,28 @@ class Player:
         Mortgage a player's property.
         From this operation the player receives the value of the mortgage from the bank and adds it to his balance.
         """
-        if not prop.mortgaged:
-            # TODO: A land can only be mortgaged if the whole group to whom
-            # belongs is devoid of constructions. Where there are buildings, they
-            # they must be sold to the Bank which will pay them half of their purchase price
+
+        try:
+            # This is done in a try, in order to be sure that the player's balance is updated
+            # only if it is done correctly.
             prop.mortgaged = True
-            self.update_budget(prop.mortgaged)
-        else:
-            raise Exception(Constants.EXCEPTION_PROPERTY_ALREADY_MORTGAGED)
+            self.update_budget(prop.mortgaged_value)
+        finally:
+            pass
 
     def redeem_property_mortgage(self, prop: Property):
         """
         Removes the mortgage from a player's property.
         To remove the mortgage, the value of the mortgage must be paid to the bank plus 10%.
         """
-        if prop.mortgaged:
+
+        try:
+            # This is done in a try, in order to be sure that the player's balance is updated
+            # only if it is done correctly.
             prop.mortgaged = False
             self.update_budget(-(ceil((prop.mortgaged_value * 10) / 100) + prop.mortgaged_value))
-        else:
-            raise Exception(Constants.EXCEPTION_PROPERTY_NOT_MORTGAGED)
+        finally:
+            pass
 
     def can_update_budget(self, amount: int) -> bool:
         """
