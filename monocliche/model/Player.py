@@ -40,9 +40,12 @@ class Player:
 
     def sell_property(self, prop: Property):
         """Sells a property and updates the player's balance."""
-        self.update_budget(prop.price)
-        prop.owner = None
-        self.properties.remove(prop)
+        if not prop.check_if_properties_have_buildings():
+            self.update_budget(prop.price)
+            prop.owner = None
+            self.properties.remove(prop)
+        else:
+            raise Exception(Constants.EXCEPTION_SELL_STRUCTURES_BEFORE_PROCEEDING_WITH_ACTION)
 
     def build_structure(self, region: Region):
         """
