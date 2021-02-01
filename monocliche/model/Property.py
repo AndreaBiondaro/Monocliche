@@ -27,6 +27,14 @@ class Property(Box):
         """
         pass
 
+    def has_construction(self) -> bool:
+        """
+        Indicates whether a property has structures.
+
+        :return True if there are any structures that are False otherwise
+        """
+        return False
+
     @property
     def mortgaged(self):
         return self.__mortgaged
@@ -72,12 +80,9 @@ class Property(Box):
     def check_if_properties_have_buildings(self) -> bool:
         """Check if there is at least one building for a group property"""
 
-        if isinstance(self, Region):
-            if not self.is_group_owned_by_player():
-                return False
-            else:
-                for region in self.property_group:
-                    if region.has_construction():
-                        return True
-        else:
-            return False
+        if self.is_group_owned_by_player():
+            for prop in self.property_group:
+                if prop.has_construction():
+                    return True
+
+        return False

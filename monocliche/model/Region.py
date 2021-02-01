@@ -71,12 +71,12 @@ class Region(Property):
             if super().is_group_owned_by_player():
                 if (self.structures + 1) <= Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS:
                     self.structures += 1
+                else:
+                    raise Exception(Constants.EXCEPTION_MAXIMUM_CONSTRUCTION_LIMIT)
 
                 if self.check_structures_are_proportionate():
                     self.structures -= 1
                     raise Exception(Constants.EXCEPTION_BUILD_STRUCTURES_PROPORTIONATE_ON_PROPERTY_GROUP)
-                else:
-                    raise Exception(Constants.EXCEPTION_MAXIMUM_CONSTRUCTION_LIMIT)
             else:
                 raise Exception(Constants.EXCEPTION_NOT_OWN_ALL_THE_PROPERTY_OF_GROUP)
         else:
