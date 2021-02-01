@@ -42,10 +42,12 @@ class Property(Box):
         else:
             # Mortgage the property
             if not self.__mortgaged:
-                # TODO: A land can only be mortgaged if the whole group to whom
-                # belongs is devoid of constructions. Where there are buildings, they
-                # they must be sold to the Bank which will pay them half of their purchase price
-                self.__mortgaged = True
+                # Check if there are any structures, because before you can proceed with the mortgage
+                # you have to sell them
+                if self.check_if_properties_have_buildings():
+                    raise Exception(Constants.EXCEPTION_SELL_STRUCTURES_BEFORE_PROCEEDING_WITH_ACTION)
+                else:
+                    self.__mortgaged = True
             else:
                 raise Exception(Constants.EXCEPTION_PROPERTY_ALREADY_MORTGAGED)
 
@@ -71,8 +73,11 @@ class Property(Box):
         """Check if there is at least one building for a group property"""
 
         if isinstance(self, Region):
-            for region in self.property_group:
-                if region.has_construction():
-                    return True
+            if not self.is_group_owned_by_player():
+                return False
+            else:
+                for region in self.property_group:
+                    if region.has_construction():
+                        return True
         else:
             return False
