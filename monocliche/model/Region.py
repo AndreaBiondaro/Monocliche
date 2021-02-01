@@ -71,6 +71,10 @@ class Region(Property):
             if super().is_group_owned_by_player():
                 if (self.structures + 1) <= Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS:
                     self.structures += 1
+
+                if self.check_structures_are_proportionate():
+                    self.structures -= 1
+                    raise Exception(Constants.EXCEPTION_BUILD_STRUCTURES_PROPORTIONATE_ON_PROPERTY_GROUP)
                 else:
                     raise Exception(Constants.EXCEPTION_MAXIMUM_CONSTRUCTION_LIMIT)
             else:
@@ -78,7 +82,7 @@ class Region(Property):
         else:
             raise Exception(Constants.EXCEPTION_NOT_POSSIBLE_TO_BUILD_ON_MORTGAGE_PROPERTY)
 
-    def destroy_structure(self) -> int:
+    def destroy_structure(self):
         """
         Destroys a property structure.
         The structure can only be destroyed if the property is not mortgaged or does not go to a negative value.
@@ -86,7 +90,30 @@ class Region(Property):
         if not self.mortgaged:
             if (self.structures - 1) >= 0:
                 self.structures -= 1
+
+                if self.check_structures_are_proportionate():
+                    self.structures += 1
+                    raise Exception(Constants.EXCEPTION_DESTROY_STRUCTURES_PROPORTIONATE_ON_PROPERTY_GROUP)
             else:
                 raise Exception(Constants.EXCEPTION_NO_PROPERTIES_TO_DESTROY)
         else:
             raise Exception(Constants.EXCEPTION_NOT_POSSIBLE_TO_DESTROY_ON_MORTGAGE_PROPERTY)
+
+    def check_structures_are_proportionate(self) -> bool:
+        """
+        Check that the player is not building/destroying only on one territory.
+        At most it is possible to build/destroy only one more structure than the other properties.
+
+        :return true if the player is not building/destroying proportionately, false otherwise.
+        """
+
+        structures_number = []
+
+        for prop in self.property_group:
+            if isinstance(prop, Region):
+                structures_number.append(prop.structures)
+
+        min_value = min(structures_number)
+        max_value = max(structures_number)
+
+        return max_value - min_value > 1
