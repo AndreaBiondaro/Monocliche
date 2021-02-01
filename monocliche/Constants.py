@@ -40,3 +40,12 @@ EXCEPTION_NO_PLAYER_PRESENT = EXCEPTION_LABEL_BASE_PATH + 'no_player_present'
 
 # TODO: "It is not possible to leave a game that has already started"
 EXCEPTION_CANNOT_LEAVE_GAME_ALREADY_STARTED = EXCEPTION_LABEL_BASE_PATH + 'cannot_leave_game_already_started'
+
+# TODO: Structures must be removed before proceeding with this operation
+EXCEPTION_SELL_STRUCTURES_BEFORE_PROCEEDING_WITH_ACTION = 'sell_structures_before_proceeding_with_action'
+
+# TODO: The construction of the structures must take place in a proportionate way on soils of the same color.
+EXCEPTION_BUILD_STRUCTURES_PROPORTIONATE_ON_PROPERTY_GROUP = 'build_structures_proportionate_on_property_group'
+
+# TODO: The destruction of the structures must take place in a proportionate way on soils of the same color.
+EXCEPTION_DESTROY_STRUCTURES_PROPORTIONATE_ON_PROPERTY_GROUP = 'destroy_structures_proportionate_on_property_group'
