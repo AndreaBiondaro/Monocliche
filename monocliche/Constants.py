@@ -49,3 +49,7 @@ EXCEPTION_BUILD_STRUCTURES_PROPORTIONATE_ON_PROPERTY_GROUP = 'build_structures_p
 
 # TODO: The destruction of the structures must take place in a proportionate way on soils of the same color.
 EXCEPTION_DESTROY_STRUCTURES_PROPORTIONATE_ON_PROPERTY_GROUP = 'destroy_structures_proportionate_on_property_group'
+
+
+# Number of spaces on the game board
+NUMBER_OF_BOXES = 40

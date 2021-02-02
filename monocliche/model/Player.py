@@ -101,13 +101,16 @@ class Player:
         To remove the mortgage, the value of the mortgage must be paid to the bank plus 10%.
         """
 
-        try:
-            # This is done in a try, in order to be sure that the player's balance is updated
-            # only if it is done correctly.
-            prop.mortgaged = False
-            self.update_budget(-(ceil((prop.mortgaged_value * 10) / 100) + prop.mortgaged_value))
-        finally:
-            pass
+        cost = -(ceil((prop.mortgaged_value * 10) / 100) + prop.mortgaged_value)
+
+        if self.can_update_budget(cost):
+            try:
+                prop.mortgaged = True
+                self.update_budget(cost)
+            finally:
+                pass
+        else:
+            raise Exception(Constants.EXCEPTION_NOT_ENOUGH_MONEY)
 
     def can_update_budget(self, amount: int) -> bool:
         """
@@ -127,7 +130,32 @@ class Player:
             return False
 
     def update_position(self, number_of_boxes: int):
-        pass
+        """
+        Update the player's position.
+
+        :param number_of_boxes:indicates the number of squares that the player must skip
+        """
+
+        # -1 because the position starts from 0
+        last_index = Constants.NUMBER_OF_BOXES - 1
+
+        new_position = self.position + number_of_boxes
+
+        # If it passes the last position of the box, then it is necessary to start from the beginning
+        if new_position > last_index:
+            new_position -= Constants.NUMBER_OF_BOXES
+
+        self.position = new_position
+
+    def calculate_total_assets(self) -> int:
+        """Calculate the assets the player owns. It also takes into account the money of properties and structures."""
+
+        amount = self.budget
+
+        for prop in self.properties:
+            amount += prop.calculate_sales_value()
+
+        return amount
 
     def add_exchange(self, exchange: Exchange):
         if self.exchanges is None:
