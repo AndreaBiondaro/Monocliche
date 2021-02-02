@@ -174,6 +174,11 @@ class PropertyTest(unittest.TestCase):
         self.assertTrue(prop1.check_if_properties_are_mortgaged())
         self.assertTrue(prop2.check_if_properties_are_mortgaged())
 
+    def test_calculate_sales_value(self):
+        prop1 = Property('prop1', 0, 5)
+
+        self.assertEqual(5, prop1.calculate_sales_value())
+
 
 if __name__ == '__main__':
     unittest.main()

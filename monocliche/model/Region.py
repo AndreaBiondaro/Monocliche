@@ -68,7 +68,7 @@ class Region(Property):
                 # Removes the hotel
                 number_house -= 1
 
-            price = (int(self.house_price / 2) * number_house) + (int(self.hotel_price / 2) * number_hotel)
+            price += (int(self.house_price / 2) * number_house) + (int(self.hotel_price / 2) * number_hotel)
 
         return price
 

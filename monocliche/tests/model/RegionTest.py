@@ -174,6 +174,24 @@ class RegionTest(unittest.TestCase):
         region1.structures = 1
         self.assertTrue(region1.has_construction())
 
+    def test_calculate_sales_value(self):
+        region1 = Region("region1", price=0, mortgaged_value=5, house_price=5, hotel_price=10, base_rent=2,
+                         income_with_house=4, income_with_two_house=6, income_with_three_house=8, income_with_hotel=10)
+
+        self.assertEqual(5, region1.calculate_sales_value())
+
+        region1.structures = 1
+
+        self.assertEqual(7, region1.calculate_sales_value())
+
+        region1.structures = 3
+
+        self.assertEqual(11, region1.calculate_sales_value())
+
+        region1.structures = 4
+
+        self.assertEqual(16, region1.calculate_sales_value())
+
 
 if __name__ == '__main__':
     unittest.main()
