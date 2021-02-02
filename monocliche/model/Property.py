@@ -86,3 +86,16 @@ class Property(Box):
                     return True
 
         return False
+
+    def check_if_properties_are_mortgaged(self) -> bool:
+        """
+        Check if a group property is mortgaged.
+
+        :return True if there is a mortgaged property, False otherwise.
+        """
+
+        for prop in self.property_group:
+            if prop.mortgaged:
+                return True
+
+        return False

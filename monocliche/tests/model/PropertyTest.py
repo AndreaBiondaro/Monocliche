@@ -160,6 +160,20 @@ class PropertyTest(unittest.TestCase):
         self.assertFalse(region1.check_if_properties_have_buildings())
         self.assertFalse(region2.check_if_properties_have_buildings())
 
+    def test_check_if_properties_are_mortgaged(self):
+        prop1 = Property('prop1', 0, 0)
+        prop2 = Property('prop2', 0, 0)
+
+        prop1.property_group = prop2.property_group = [prop1, prop2]
+
+        self.assertFalse(prop1.check_if_properties_are_mortgaged())
+        self.assertFalse(prop2.check_if_properties_are_mortgaged())
+
+        prop1.mortgaged = True
+
+        self.assertTrue(prop1.check_if_properties_are_mortgaged())
+        self.assertTrue(prop2.check_if_properties_are_mortgaged())
+
 
 if __name__ == '__main__':
     unittest.main()

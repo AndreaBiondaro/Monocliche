@@ -67,14 +67,14 @@ class Region(Property):
         The new structure can be built, only if the land is not mortgaged, the player owns the whole group
         or does not exceed the 4 structures already built.
         """
-        if not self.mortgaged:
+        if not self.check_if_properties_are_mortgaged():
             if super().is_group_owned_by_player():
                 if (self.structures + 1) <= Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS:
                     self.structures += 1
                 else:
                     raise Exception(Constants.EXCEPTION_MAXIMUM_CONSTRUCTION_LIMIT)
 
-                if self.check_structures_are_proportionate():
+                if not self.check_structures_are_proportionate():
                     self.structures -= 1
                     raise Exception(Constants.EXCEPTION_BUILD_STRUCTURES_PROPORTIONATE_ON_PROPERTY_GROUP)
             else:
@@ -87,11 +87,11 @@ class Region(Property):
         Destroys a property structure.
         The structure can only be destroyed if the property is not mortgaged or does not go to a negative value.
         """
-        if not self.mortgaged:
+        if not self.check_if_properties_are_mortgaged():
             if (self.structures - 1) >= 0:
                 self.structures -= 1
 
-                if self.check_structures_are_proportionate():
+                if not self.check_structures_are_proportionate():
                     self.structures += 1
                     raise Exception(Constants.EXCEPTION_DESTROY_STRUCTURES_PROPORTIONATE_ON_PROPERTY_GROUP)
             else:
@@ -104,7 +104,7 @@ class Region(Property):
         Check that the player is not building/destroying only on one territory.
         At most it is possible to build/destroy only one more structure than the other properties.
 
-        :return true if the player is not building/destroying proportionately, false otherwise.
+        :return true if the player is building/destroying proportionately, false otherwise.
         """
 
         structures_number = []
@@ -116,4 +116,4 @@ class Region(Property):
         min_value = min(structures_number)
         max_value = max(structures_number)
 
-        return max_value - min_value > 1
+        return max_value - min_value <= 1
