@@ -35,6 +35,12 @@ class Property(Box):
         """
         return False
 
+    def calculate_sales_value(self) -> int:
+        """
+        It indicates the value of selling the territory to the bank.
+        """
+        return self.mortgaged_value
+
     @property
     def mortgaged(self):
         return self.__mortgaged

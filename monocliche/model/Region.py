@@ -53,6 +53,25 @@ class Region(Property):
 
         return self.structures > 0
 
+    def calculate_sales_value(self) -> int:
+        """It indicates the value of selling the territory to the bank."""
+
+        price = super().calculate_sales_value()
+
+        # If there are buildings, you need to add up the value they have.
+        if self.has_construction():
+            number_house = self.structures
+            number_hotel = 0
+
+            if self.structures == Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS:
+                number_hotel = 1
+                # Removes the hotel
+                number_house -= 1
+
+            price = (int(self.house_price / 2) * number_house) + (int(self.hotel_price / 2) * number_hotel)
+
+        return price
+
     def structure_cost(self) -> int:
         """Based on the number of structures built, it returns the cost."""
 
