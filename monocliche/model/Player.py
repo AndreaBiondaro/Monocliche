@@ -57,7 +57,7 @@ class Player:
             region.build_structure()
 
             # Check if the player has enough money
-            if not self.can_update_budget(-region.structure_cost()):
+            if not self.update_budget(-region.structure_cost()):
                 # If the player doesn't have enough money, he removes the newly created structure
                 region.destroy_structure()
                 raise Exception(Constants.EXCEPTION_NOT_ENOUGH_MONEY)
@@ -74,7 +74,7 @@ class Player:
             try:
                 # This is done in a try, in order to be sure that the player's balance is updated
                 # only if it is done correctly.
-                region.build_structure()
+                region.destroy_structure()
                 self.update_budget(int(structure_cost / 2))
             finally:
                 pass
@@ -101,11 +101,11 @@ class Player:
         To remove the mortgage, the value of the mortgage must be paid to the bank plus 10%.
         """
 
-        cost = -(ceil((prop.mortgaged_value * 10) / 100) + prop.mortgaged_value)
+        cost = -(ceil(prop.mortgaged_value * 0.1) + prop.mortgaged_value)
 
         if self.can_update_budget(cost):
             try:
-                prop.mortgaged = True
+                prop.mortgaged = False
                 self.update_budget(cost)
             finally:
                 pass
