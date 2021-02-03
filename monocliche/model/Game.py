@@ -9,6 +9,7 @@ from monocliche.model.Dice import Dice
 from monocliche.model.DiceRollResult import DiceRollResult
 from monocliche.model.Player import Player
 from monocliche.model.enum.GameStatus import GameStatus
+from monocliche.model.actions.GoToJailAction import GoToJailAction
 
 
 class Game:
@@ -79,22 +80,52 @@ class Game:
         # Need to initialize the first player
         self.players.next_player()
 
+    def update_game_status(self, new_status: GameStatus):
+        self.status = new_status
+
+    def end_game(self):
+        self.update_game_status(GameStatus.COMPLETED)
+
     def check_game_is_over(self) -> bool:
-        """Check if all but one of the players are bankrupt, if so then the remaining player is the winner."""
+        """
+        Check if the game status is complete.
 
-        # TODO : implements
+        :return: True if the game is over, False otherwise
+        """
 
-        # TODO : to be removed because it is not needed
         return self.status == GameStatus.COMPLETED
 
+    def extract_non_bankrupt_player(self) -> Player:
+        """
+        Take out the last player left in the game (This depends on when this method is used).
+
+        :return: The player who won
+        """
+
+        return self.players.extract_non_bankrupt_player()
+
     def complete_match(self) -> Player:
-        """Forces the match to complete and returns the player who is richer."""
+        """
+        Forces the match to complete and returns the player who is richer.
+        In case two players have the same capital, the first player found wins.
 
-        # TODO : implements
+        :return: The player who won because the richest
+        """
 
-        self.status = GameStatus.COMPLETED
+        self.end_game()
 
-        return self.players.iterate()[0]
+        richest_player = None
+
+        # Use this variable to avoid having to recalculate the capital for the currently richest player each time
+        temp_max = 0
+
+        for player in self.players.iterate():
+            temp = player.calculate_total_assets()
+            if temp > temp_max:
+                temp_max = temp
+                richest_player = player
+
+        return richest_player
 
     def roll_dice(self) -> int:
         """Roll the dice and update the player's position."""
@@ -106,8 +137,7 @@ class Game:
         current_player: Player = self.players.current_player
 
         if self.dice_roll_result.double_value_counter == 3:
-            current_player.in_jail = True
-            # TODO : need to update the position of player to jail
+            GoToJailAction().execute(self)
         else:
             current_player.update_position(self.dice_roll_result.dice_result)
 

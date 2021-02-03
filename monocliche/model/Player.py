@@ -16,6 +16,7 @@ class Player:
         self.properties: list[Property] = []
         self.in_jail = False
         self.my_turn = False
+        self.bankrupt = False
         self.position = 0
         self.prison_release_card = False
         self.exchanges: list[Exchange] = []

@@ -82,15 +82,76 @@ class GameTest(unittest.TestCase):
         self.assertEqual(player, game.players.current_player)
         self.assertEqual(GameStatus.RUNNING, game.status)
 
-    def test_check_game_is_over(self):
-        # TODO: implements
+    def test_update_game_status(self):
+        game = Game()
 
-        pass
+        game.update_game_status(GameStatus.RUNNING)
+
+        self.assertEqual(GameStatus.RUNNING, game.status)
+
+        game.update_game_status(GameStatus.COMPLETED)
+
+        self.assertEqual(GameStatus.COMPLETED, game.status)
+
+    def test_end_game(self):
+        game = Game()
+
+        game.end_game()
+
+        self.assertEqual(GameStatus.COMPLETED, game.status)
+
+    def test_check_game_is_over(self):
+        game = Game()
+
+        self.assertFalse(game.check_game_is_over())
+
+        game.status = GameStatus.COMPLETED
+
+        self.assertTrue(game.check_game_is_over())
+
+    def test_extract_non_bankrupt_player(self):
+        game = Game()
+
+        player1 = game.add_player("One")
+        player2 = game.add_player("Two")
+
+        player1.bankrupt = True
+
+        self.assertEqual(player2, game.players.extract_non_bankrupt_player())
 
     def test_complete_match(self):
-        # TODO: implements
+        game = Game()
 
-        pass
+        player1 = game.add_player("One")
+        player2 = game.add_player("Two")
+
+        player1.budget = 100
+        player2.budget = 50
+
+        self.assertEqual(player1, game.complete_match())
+        self.assertEqual(GameStatus.COMPLETED, game.status)
+
+    def test_roll_dice(self):
+        game = Game()
+
+        player1 = game.add_player("One")
+
+        # Initialize the first player.
+        game.players.next_player()
+
+        game.roll_dice()
+        self.assertEqual(player1.position, game.dice_roll_result.dice_result)
+
+        player1.position = 0
+
+        # Forces the inside counter to have 3 so that on the next roll the player has to go to jail.
+        game.dice_roll_result.update_dice_result(1, 1)
+        game.dice_roll_result.update_dice_result(1, 1)
+        game.dice_roll_result.update_dice_result(1, 1)
+
+        game.roll_dice()
+
+        self.assertTrue(player1.in_jail)
 
 
 if __name__ == '__main__':
