@@ -109,6 +109,15 @@ class LinkedPlayers:
 
         return self.current_player
 
+    def extract_non_bankrupt_player(self) -> Optional[Player]:
+        """Draws the first player who is not bankrupt. It doesn't mean he's the winner."""
+
+        for player in self.iterate():
+            if not player.bankrupt:
+                return player
+
+        return None
+
     def iterate(self):
         """
         Iterates through the linked list and returns the list of players present.
