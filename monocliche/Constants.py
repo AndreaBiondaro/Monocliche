@@ -61,3 +61,59 @@ NUMBER_OF_BOXES = 40
 
 # Indicate the position of the prison in the list of boxes. The index is 0 based
 PRISON_CELL_LOCATION = 10
+
+# BOX NAMES
+"""
+Structure example
+
+{
+    label: {
+                box_name: {
+                            go_box: 'GO',
+                            community_chest_box: 'Community chest'
+                            chance_box: 'Chance'
+                }
+    }
+}
+"""
+
+# In the name of the constants we use the name of the squares taken from the board of the English monopoly.
+BASE_PATH_LABEL_BOX_NAME = 'label.box_name.'
+
+NAME_GO_BOX = BASE_PATH_LABEL_BOX_NAME + 'go_box'
+NAME_COMMUNITY_CHEST_BOX = BASE_PATH_LABEL_BOX_NAME + 'community_chest_box'
+NAME_CHANCE_BOX = BASE_PATH_LABEL_BOX_NAME + 'chance_box'
+NAME_SUPER_TAX_BOX = BASE_PATH_LABEL_BOX_NAME + 'super_tax_box'
+NAME_FREE_PARKING_BOX = BASE_PATH_LABEL_BOX_NAME + 'free_parking_box'
+NAME_JUST_VISITING_BOX = BASE_PATH_LABEL_BOX_NAME + 'just_visiting_box'
+NAME_GO_TO_JAIL_BOX = BASE_PATH_LABEL_BOX_NAME + 'go_to_jail_box'
+NAME_INCOME_TAX_BOX = BASE_PATH_LABEL_BOX_NAME + 'income_tax_box'
+NAME_KING_CROSS_STATION_BOX = BASE_PATH_LABEL_BOX_NAME + 'king_cross_station_box'
+NAME_MARYLEBONE_STATION_BOX = BASE_PATH_LABEL_BOX_NAME + 'marylebone_station_box'
+NAME_FENCHURCH_STATION_BOX = BASE_PATH_LABEL_BOX_NAME + 'fenchurch_station_box'
+NAME_LIVERPOOL_STATION_BOX = BASE_PATH_LABEL_BOX_NAME + 'liverpool_station_box'
+NAME_ELECTRIC_COMPANY_BOX = BASE_PATH_LABEL_BOX_NAME + 'electric_company_box'
+NAME_WATER_WORKS_BOX = BASE_PATH_LABEL_BOX_NAME + 'water_works_box'
+NAME_OLD_KENT_ROAD_BOX = BASE_PATH_LABEL_BOX_NAME + 'old_kent_road_box'
+NAME_WHITECHAPEL_ROAD_BOX = BASE_PATH_LABEL_BOX_NAME + 'whitechapel_box'
+NAME_THE_ANGEL_ISLINGTON_BOX = BASE_PATH_LABEL_BOX_NAME + 'the_angel_islington_box'
+NAME_EUSTON_ROAD_BOX = BASE_PATH_LABEL_BOX_NAME + 'euston_road_box'
+NAME_PENTONVILLE_ROAD_BOX = BASE_PATH_LABEL_BOX_NAME + 'pentonville_road'
+NAME_PALL_MALL_BOX = BASE_PATH_LABEL_BOX_NAME + 'pall_mall_box'
+NAME_WHITEHALL_BOX = BASE_PATH_LABEL_BOX_NAME + 'whitehall_box'
+NAME_NORTHUMRLD_AVENUE_BOX = BASE_PATH_LABEL_BOX_NAME + 'northumrld_avenue_box'
+NAME_BOW_STREET_BOX = BASE_PATH_LABEL_BOX_NAME + 'bow_street_box'
+NAME_MARLBOROUGH_STREET_BOX = BASE_PATH_LABEL_BOX_NAME + 'marlborough_street_box'
+NAME_VINE_STREET_BOX = BASE_PATH_LABEL_BOX_NAME + 'vine_street_box'
+NAME_STRAND_BOX = BASE_PATH_LABEL_BOX_NAME + 'strand_box'
+NAME_FLEET_STREET_BOX = BASE_PATH_LABEL_BOX_NAME + 'fleet_street_box'
+NAME_TRAFALGAR_SQUARE_BOX = BASE_PATH_LABEL_BOX_NAME + 'trafalgar_square_box'
+NAME_LEICESTER_SQUARE_BOX = BASE_PATH_LABEL_BOX_NAME + 'leicester_square_box'
+NAME_COVENTRY_STREET_BOX = BASE_PATH_LABEL_BOX_NAME + 'coventry_box'
+NAME_PICCADILLY_BOX = BASE_PATH_LABEL_BOX_NAME + 'piccadilly_box'
+NAME_REGENT_STREET_BOX = BASE_PATH_LABEL_BOX_NAME + 'regent_street_box'
+NAME_OXFORD_STREET_BOX = BASE_PATH_LABEL_BOX_NAME + 'oxford_street_box'
+NAME_BOND_STREET_BOX = BASE_PATH_LABEL_BOX_NAME + 'bond_street_box'
+NAME_PARK_LANE_BOX = BASE_PATH_LABEL_BOX_NAME + 'park_lane_box'
+NAME_MAYFAIR_BOX = BASE_PATH_LABEL_BOX_NAME + 'mayfair_box'
+
