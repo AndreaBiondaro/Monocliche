@@ -42,14 +42,22 @@ EXCEPTION_NO_PLAYER_PRESENT = EXCEPTION_LABEL_BASE_PATH + 'no_player_present'
 EXCEPTION_CANNOT_LEAVE_GAME_ALREADY_STARTED = EXCEPTION_LABEL_BASE_PATH + 'cannot_leave_game_already_started'
 
 # TODO: Structures must be removed before proceeding with this operation
-EXCEPTION_SELL_STRUCTURES_BEFORE_PROCEEDING_WITH_ACTION = 'sell_structures_before_proceeding_with_action'
+EXCEPTION_SELL_STRUCTURES_BEFORE_PROCEEDING_WITH_ACTION = EXCEPTION_LABEL_BASE_PATH + 'sell_structures_before_proceeding_with_action'
 
 # TODO: The construction of the structures must take place in a proportionate way on soils of the same color.
-EXCEPTION_BUILD_STRUCTURES_PROPORTIONATE_ON_PROPERTY_GROUP = 'build_structures_proportionate_on_property_group'
+EXCEPTION_BUILD_STRUCTURES_PROPORTIONATE_ON_PROPERTY_GROUP = EXCEPTION_LABEL_BASE_PATH + 'build_structures_proportionate_on_property_group'
 
 # TODO: The destruction of the structures must take place in a proportionate way on soils of the same color.
-EXCEPTION_DESTROY_STRUCTURES_PROPORTIONATE_ON_PROPERTY_GROUP = 'destroy_structures_proportionate_on_property_group'
+EXCEPTION_DESTROY_STRUCTURES_PROPORTIONATE_ON_PROPERTY_GROUP = EXCEPTION_LABEL_BASE_PATH + 'destroy_structures_proportionate_on_property_group'
 
+# TODO: The target box type is invalid
+EXCEPTION_BOX_TYPE_NOT_VALID = EXCEPTION_LABEL_BASE_PATH + 'box_type_not_valid'
+
+# TODO : The destination box not exists
+EXCEPTION_DESTINATION_BOX_NOT_EXISTS = EXCEPTION_LABEL_BASE_PATH + 'destination_box_not_exists'
 
 # Number of spaces on the game board
 NUMBER_OF_BOXES = 40
+
+# Indicate the position of the prison in the list of boxes. The index is 0 based
+PRISON_CELL_LOCATION = 10

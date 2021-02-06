@@ -1,3 +1,5 @@
+from monocliche import Constants
+
 from monocliche.model import Game
 from monocliche.model.AbstractAction import AbstractAction
 
@@ -11,5 +13,5 @@ class UpdateAmountAction(AbstractAction):
         self.__amount = amount
 
     def execute(self, game: Game):
-        # FIXME: need to use the service to update the player's amounts !?
-        pass
+        if not game.players.current_player.update_budget(self.__amount):
+            raise Exception(Constants.EXCEPTION_NOT_ENOUGH_MONEY)

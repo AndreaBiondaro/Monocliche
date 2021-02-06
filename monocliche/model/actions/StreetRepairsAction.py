@@ -1,4 +1,6 @@
-from monocliche.model import Game
+from monocliche import Constants
+
+from monocliche.model import Game, Region
 from monocliche.model.AbstractAction import AbstractAction
 
 
@@ -13,5 +15,13 @@ class StreetRepairsAction(AbstractAction):
         self.__cost_per_hotel = cost_per_hotel
 
     def execute(self, game: Game):
-        # FIXME: need to use the service to update the player's amounts !?
-        pass
+        current_player = game.players.current_player
+
+        total = 0
+        for prop in current_player.properties:
+            if isinstance(prop, Region):
+                total += ((prop.get_number_of_houses() * self.__cost_per_house) + (
+                        prop.get_number_of_hotel() * self.__cost_per_hotel))
+
+        if not current_player.update_budget(-total):
+            raise Exception(Constants.EXCEPTION_NOT_ENOUGH_MONEY)

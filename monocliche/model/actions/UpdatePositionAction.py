@@ -12,5 +12,4 @@ class UpdatePositionAction(AbstractAction):
         self.__position_to_change = position_to_change
 
     def execute(self, game: Game):
-        # FIXME: need to use the service to update the player's position !?
-        game.players.current_player.position += self.__position_to_change
+        game.players.current_player.update_position(self.__position_to_change)

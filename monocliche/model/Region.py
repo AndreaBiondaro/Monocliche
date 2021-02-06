@@ -136,3 +136,23 @@ class Region(Property):
         max_value = max(structures_number)
 
         return max_value - min_value <= 1
+
+    def get_number_of_houses(self) -> int:
+        """Returns the number of houses built on this property."""
+
+        number = self.structures
+
+        if number == Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS:
+            number -= 1
+
+        return number
+
+    def get_number_of_hotel(self) -> int:
+        """Returns the number of hotel built on this property."""
+
+        number = 0
+
+        if self.structures == Region.MAXIMUM_NUMBER_OF_CONSTRUCTIONS:
+            number = 1
+
+        return number
