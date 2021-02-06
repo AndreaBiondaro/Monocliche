@@ -192,6 +192,30 @@ class RegionTest(unittest.TestCase):
 
         self.assertEqual(16, region1.calculate_sales_value())
 
+    def test_get_number_of_houses(self):
+        region1 = Region("region1", price=0, mortgaged_value=5, house_price=5, hotel_price=10, base_rent=2,
+                         income_with_house=4, income_with_two_house=6, income_with_three_house=8, income_with_hotel=10)
+
+        region1.structures = 2
+
+        self.assertEqual(2, region1.get_number_of_houses())
+
+        region1.structures = 4
+
+        self.assertEqual(3, region1.get_number_of_houses())
+
+    def test_get_number_of_hotel(self):
+        region1 = Region("region1", price=0, mortgaged_value=5, house_price=5, hotel_price=10, base_rent=2,
+                         income_with_house=4, income_with_two_house=6, income_with_three_house=8, income_with_hotel=10)
+
+        region1.structures = 2
+
+        self.assertEqual(0, region1.get_number_of_hotel())
+
+        region1.structures = 4
+
+        self.assertEqual(1, region1.get_number_of_hotel())
+
 
 if __name__ == '__main__':
     unittest.main()
