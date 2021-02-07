@@ -59,6 +59,9 @@ EXCEPTION_DESTINATION_BOX_NOT_EXISTS = EXCEPTION_LABEL_BASE_PATH + 'destination_
 # Number of spaces on the game board
 NUMBER_OF_BOXES = 40
 
+NUMBER_OF_COMMUNITY_CHEST_CARDS = 16
+NUMBER_OF_CHANCE_CARDS = 16
+
 # Indicate the position of the prison in the list of boxes. The index is 0 based
 PRISON_CELL_LOCATION = 10
 
@@ -117,3 +120,60 @@ NAME_BOND_STREET_BOX = BASE_PATH_LABEL_BOX_NAME + 'bond_street_box'
 NAME_PARK_LANE_BOX = BASE_PATH_LABEL_BOX_NAME + 'park_lane_box'
 NAME_MAYFAIR_BOX = BASE_PATH_LABEL_BOX_NAME + 'mayfair_box'
 
+# CARDS NAME
+"""
+Structure example
+
+{
+    label: {
+                card: {
+                            name: {
+                                    chance: 'Chance',
+                                    community_chest: 'Community Chest'
+                            },
+                            description: {
+                                            out_of_jail: 'Get out of Jail, Free.',
+                                            won_second_prize: 'You won second prize in a beauty contest. Collect €150.'
+                                            sale_of_stock: 'From sale of stock, you get €50.'
+                            }
+                }
+    }
+}
+"""
+
+BASE_PATH_LABEL_CARD_NAME = 'label.card.name'
+
+CHANCE_CARD_NAME = BASE_PATH_LABEL_CARD_NAME + 'chance'
+COMMUNITY_CHEST_CARD_NAME = BASE_PATH_LABEL_CARD_NAME + 'community_chest'
+
+BASE_PATH_LABEL_CARD_DESCRIPTION = 'label.card.description'
+
+CARD_OUT_OF_JAIL = BASE_PATH_LABEL_CARD_DESCRIPTION + 'out_of_jail'
+CARD_WON_SECOND_PRIZE = BASE_PATH_LABEL_CARD_DESCRIPTION + 'won_second_prize'
+CARD_SALE_OF_STOCK = BASE_PATH_LABEL_CARD_DESCRIPTION + 'sale_of_stock'
+CARD_LIFE_INSURANCE = BASE_PATH_LABEL_CARD_DESCRIPTION + 'life_insurance'
+CARD_INCOME_TAX_REFUND = BASE_PATH_LABEL_CARD_DESCRIPTION + 'income_tax_refund'
+CARD_HOLIDAY_FUND = BASE_PATH_LABEL_CARD_DESCRIPTION + 'holiday_fund'
+CARD_INHERIT = BASE_PATH_LABEL_CARD_DESCRIPTION + 'inherit'
+CARD_CONSULTANCY_FEE = BASE_PATH_LABEL_CARD_DESCRIPTION + 'consultancy_fee'
+CARD_PAY_HOSPITAL = BASE_PATH_LABEL_CARD_DESCRIPTION + 'pay_hospital'
+CARD_BANK_ERROR = BASE_PATH_LABEL_CARD_DESCRIPTION + 'bank_error'
+CARD_PAY_SCHOOL = BASE_PATH_LABEL_CARD_DESCRIPTION + 'pay_school'
+CARD_DOCTOR_FEE = BASE_PATH_LABEL_CARD_DESCRIPTION + 'doctor_fee'
+CARD_YOUR_BIRTHDAY = BASE_PATH_LABEL_CARD_DESCRIPTION + 'your_birthday'
+CARD_ADVANCE_TO_GO = BASE_PATH_LABEL_CARD_DESCRIPTION + 'advance_to_go'
+CARD_STREET_REPAIR = BASE_PATH_LABEL_CARD_DESCRIPTION + 'street_repair'
+CARD_GO_TO_JAIL = BASE_PATH_LABEL_CARD_DESCRIPTION + 'go_to_jail'
+CARD_MAKE_REPAIRS_ON_PROPERTY = BASE_PATH_LABEL_CARD_DESCRIPTION + 'make_repairs_on_property'
+CARD_SPEEDING_FINE = BASE_PATH_LABEL_CARD_DESCRIPTION + 'speeding_fine'
+CARD_ELECTED_CHAIRMAN_OF_ROAD = BASE_PATH_LABEL_CARD_DESCRIPTION + 'elected_chairman_of_road'
+CARD_BACK_THREE_SPACES = BASE_PATH_LABEL_CARD_DESCRIPTION + 'go_back_three_spaces'
+CARD_ADVANCE_TO_UTILITY = BASE_PATH_LABEL_CARD_DESCRIPTION + 'advance_to_utility'
+CARD_BANK_PAYS = BASE_PATH_LABEL_CARD_DESCRIPTION + 'bank_pays'
+CARD_ADVANCE_TO_RAILROAD = BASE_PATH_LABEL_CARD_DESCRIPTION + 'advance_to_railroad'
+CARD_PAY_POOR_TAX = BASE_PATH_LABEL_CARD_DESCRIPTION + 'pay_poor_tax'
+CARD_LOAN_MATURE = BASE_PATH_LABEL_CARD_DESCRIPTION + 'loan_mature'
+CARD_ADVANCE_TO_FENCHURCH_STATION = BASE_PATH_LABEL_CARD_DESCRIPTION + 'advance_to_fenchurch_station'
+CARD_ADVANCE_TO_MAYFAIR = BASE_PATH_LABEL_CARD_DESCRIPTION + 'advance_to_mayfair'
+CARD_ADVANCE_TO_TRAFALGAR_SQUARE = BASE_PATH_LABEL_CARD_DESCRIPTION + 'advance_to_trafalgar_square'
+CARD_ADVANCE_TO_PALL_MALL = BASE_PATH_LABEL_CARD_DESCRIPTION + 'advance_to_pall_mall'
