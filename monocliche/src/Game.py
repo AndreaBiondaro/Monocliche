@@ -1,9 +1,9 @@
 from uuid import uuid4
 
-from monocliche import Constants
+from monocliche.src import Constants
 
-from monocliche.LinkedPlayers import LinkedPlayers
-from monocliche.Uitls import Utils
+from monocliche.src.LinkedPlayers import LinkedPlayers
+from monocliche.src.Uitls import Utils
 from monocliche.model.Board import Board
 from monocliche.model.Dice import Dice
 from monocliche.model.DiceRollResult import DiceRollResult

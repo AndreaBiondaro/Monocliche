@@ -1,6 +1,6 @@
 import unittest
 
-from monocliche import Constants
+from monocliche.src import Constants
 
 from monocliche.model.Board import Board
 

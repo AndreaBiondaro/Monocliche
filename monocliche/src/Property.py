@@ -1,7 +1,7 @@
 from abc import abstractmethod
 from typing import Optional
 
-from monocliche import Constants
+from monocliche.src import Constants
 
 from monocliche.model.Box import Box
 from monocliche.model import Player, DiceRollResult

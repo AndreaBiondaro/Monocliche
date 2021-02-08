@@ -1,6 +1,6 @@
 import unittest
 
-from monocliche.LinkedPlayers import LinkedPlayers
+from monocliche.src.LinkedPlayers import LinkedPlayers
 from monocliche.model.Player import Player
 
 

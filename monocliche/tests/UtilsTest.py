@@ -1,6 +1,6 @@
 import unittest
 
-from monocliche.Uitls import Utils
+from monocliche.src.Uitls import Utils
 
 
 class UtilityTest(unittest.TestCase):

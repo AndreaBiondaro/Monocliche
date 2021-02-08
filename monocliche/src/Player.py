@@ -1,7 +1,7 @@
 from uuid import uuid4
 from math import ceil
 
-from monocliche import Constants
+from monocliche.src import Constants
 
 from monocliche.model.Exchange import Exchange
 from monocliche.model.Property import Property
