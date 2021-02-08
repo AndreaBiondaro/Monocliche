@@ -1,6 +1,4 @@
-from typing import Any
-
-from monocliche import Constants
+from monocliche.src import Constants
 
 from monocliche.model.actions.GoToBoxAction import GoToBoxAction
 

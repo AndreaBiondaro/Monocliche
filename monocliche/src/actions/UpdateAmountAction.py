@@ -1,4 +1,4 @@
-from monocliche import Constants
+from monocliche.src import Constants
 
 from monocliche.model.AbstractAction import AbstractAction
 
