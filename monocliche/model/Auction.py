@@ -1,11 +1,11 @@
 from datetime import datetime
 
-from monocliche.model import Property, Bid
+from monocliche.model import Bid
 
 
 class Auction:
 
-    def __init__(self, start_time: datetime, end_time: datetime, auction_property: Property):
+    def __init__(self, start_time: datetime, end_time: datetime, auction_property):
         self.start_time = start_time
         self.end_time = end_time
         self.auction_property = auction_property

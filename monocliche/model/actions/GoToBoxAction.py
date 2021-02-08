@@ -2,7 +2,6 @@ from uuid import UUID
 
 from monocliche import Constants
 
-from monocliche.model import Game
 from monocliche.model.AbstractAction import AbstractAction
 
 
@@ -14,7 +13,7 @@ class GoToBoxAction(AbstractAction):
     def __init__(self, id_destination: UUID):
         self.__id_destination = id_destination
 
-    def execute(self, game: Game):
+    def execute(self, game):
         destination_position = None
 
         for index, box in enumerate(game.board.boxes):

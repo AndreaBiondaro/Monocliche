@@ -2,7 +2,6 @@ from typing import Any
 
 from monocliche import Constants
 
-from monocliche.model import Game
 from monocliche.model.actions.GoToBoxAction import GoToBoxAction
 
 
@@ -15,7 +14,7 @@ class GoToBoxTypeAction(GoToBoxAction):
     def __init__(self, box_type: Any):
         self.__box_type = box_type
 
-    def execute(self, game: Game):
+    def execute(self, game):
         current_player = game.players.current_player
 
         boxes = game.board.boxes[current_player.position:].append(game.board.boxes[:current_player.position])

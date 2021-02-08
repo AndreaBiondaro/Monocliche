@@ -1,4 +1,3 @@
-from monocliche.model import Game
 from monocliche.model.AbstractAction import AbstractAction
 
 
@@ -11,5 +10,5 @@ class UpdatePositionAction(AbstractAction):
     def __init__(self, position_to_change: int):
         self.__position_to_change = position_to_change
 
-    def execute(self, game: Game):
+    def execute(self, game):
         game.players.current_player.update_position(self.__position_to_change)

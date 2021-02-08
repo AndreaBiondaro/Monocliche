@@ -1,6 +1,6 @@
 from monocliche import Constants
 
-from monocliche.model import Game, Region
+from monocliche.model import Region
 from monocliche.model.AbstractAction import AbstractAction
 
 
@@ -14,7 +14,7 @@ class StreetRepairsAction(AbstractAction):
         self.__cost_per_house = cost_per_house
         self.__cost_per_hotel = cost_per_hotel
 
-    def execute(self, game: Game):
+    def execute(self, game):
         current_player = game.players.current_player
 
         total = 0

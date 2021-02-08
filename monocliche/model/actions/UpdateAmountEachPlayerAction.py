@@ -1,4 +1,3 @@
-from monocliche.model import Game
 from monocliche.model.AbstractAction import AbstractAction
 
 
@@ -10,7 +9,7 @@ class UpdateAmountEachPlayerAction(AbstractAction):
     def __init__(self, amount):
         self.__amount = amount
 
-    def execute(self, game: Game):
+    def execute(self, game):
         current_player = game.players.current_player
 
         counter = 0

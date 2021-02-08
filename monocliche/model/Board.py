@@ -151,4 +151,4 @@ class Board:
         deck = Deck(cards)
         deck.shuffle()
 
-        self.community_chest_deck = deck
+        self.chance_deck = deck

@@ -1,4 +1,4 @@
-from monocliche.model import Game, AbstractAction
+from monocliche.model import AbstractAction
 
 from monocliche.model.Box import Box
 
@@ -18,5 +18,5 @@ class ActionBox(Box):
         self.action = action
         super().__init__(name)
 
-    def execute(self, game: Game):
+    def execute(self, game):
         self.action.execute(game)

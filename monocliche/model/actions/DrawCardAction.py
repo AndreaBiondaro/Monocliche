@@ -1,4 +1,4 @@
-from monocliche.model import Game, Deck
+from monocliche.model import Deck
 from monocliche.model.AbstractAction import AbstractAction
 
 
@@ -8,5 +8,5 @@ class DrawCardAction(AbstractAction):
     def __init__(self, deck: Deck):
         self.__deck = deck
 
-    def execute(self, game: Game):
+    def execute(self, game):
         return self.__deck.draw_card()

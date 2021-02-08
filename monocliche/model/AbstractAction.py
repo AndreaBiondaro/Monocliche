@@ -1,7 +1,5 @@
 from abc import ABCMeta, abstractmethod
 
-from monocliche.model import Game
-
 
 class AbstractAction(metaclass=ABCMeta):
     """
@@ -10,7 +8,7 @@ class AbstractAction(metaclass=ABCMeta):
     """
 
     @abstractmethod
-    def execute(self, game: Game):
+    def execute(self, game):
         """
         Performs an action.
         The "Game" class is passed as an argument in order to have all the necessary information.
