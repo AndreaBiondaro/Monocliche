@@ -17,7 +17,7 @@ class GoToBoxAction(AbstractAction):
         destination_position = None
 
         for index, box in enumerate(game.board.boxes):
-            if box == self.__id_destination:
+            if box.id == self.__id_destination:
                 destination_position = index
                 break
 

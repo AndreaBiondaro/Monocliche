@@ -1,6 +1,6 @@
 from monocliche import Constants
 
-from monocliche.model import Region
+from monocliche.model.Region import Region
 from monocliche.model.AbstractAction import AbstractAction
 
 
