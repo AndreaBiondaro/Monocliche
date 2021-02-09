@@ -1,7 +1,7 @@
 import unittest
 
-from monocliche.LinkedPlayers import LinkedPlayers
-from monocliche.model.Player import Player
+from monocliche.src.LinkedPlayers import LinkedPlayers
+from monocliche.src.Player import Player
 
 
 class LinkedPlayersTest(unittest.TestCase):
@@ -108,6 +108,24 @@ class LinkedPlayersTest(unittest.TestCase):
         list_player.add(player2)
         list_player.next_player()
         self.assertEqual(player2.id, list_player.current_player.id)
+
+    def test_extract_non_bankrupt_player(self):
+        player1 = Player("player1")
+        player2 = Player("player2")
+
+        list_player = LinkedPlayers()
+        list_player.add(player1)
+        list_player.add(player2)
+
+        self.assertEqual(player1, list_player.extract_non_bankrupt_player())
+
+        player1.bankrupt = True
+
+        self.assertEqual(player2, list_player.extract_non_bankrupt_player())
+
+        player2.bankrupt = True
+
+        self.assertIsNone(list_player.extract_non_bankrupt_player())
 
 
 if __name__ == '__main__':
