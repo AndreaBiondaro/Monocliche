@@ -16,8 +16,3 @@ To see the documentation we wrote use the [doc](./doc/) folder.
 Just clone this repository.
 
 We are currently using **python version 3.9**
-
-## Roadmap
-* [ ] Implement the logic of the game
-* [ ] Give the ability to customize game settings
-* [ ] Add roles for each player, with customized skills
