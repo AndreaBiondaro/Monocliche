@@ -56,11 +56,16 @@ EXCEPTION_BOX_TYPE_NOT_VALID = EXCEPTION_LABEL_BASE_PATH + 'box_type_not_valid'
 # TODO : The destination box not exists
 EXCEPTION_DESTINATION_BOX_NOT_EXISTS = EXCEPTION_LABEL_BASE_PATH + 'destination_box_not_exists'
 
+EXCEPTION_AUCTION_COMPLETED = EXCEPTION_LABEL_BASE_PATH + 'auction_completed'
+
 # Number of spaces on the game board
 NUMBER_OF_BOXES = 40
 
 NUMBER_OF_COMMUNITY_CHEST_CARDS = 16
 NUMBER_OF_CHANCE_CARDS = 16
+
+# Auction duration in seconds
+AUCTION_DURATION = 90
 
 # Indicate the position of the prison in the list of boxes. The index is 0 based
 PRISON_CELL_LOCATION = 10
