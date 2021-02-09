@@ -47,6 +47,8 @@ class Board:
         super_tax_action = UpdateAmountAction(250)
         go_to_jail_action = GoToJailAction()
 
+        # TODO : Indicate the group to which the properties belong
+
         self.boxes[0] = ActionBox(Constants.NAME_GO_BOX, go_action)
         self.boxes[1] = Region(Constants.NAME_OLD_KENT_ROAD_BOX, 0, 0, 0, 0, 0, 0, 0, 0, 0)
         self.boxes[2] = ActionBox(Constants.NAME_COMMUNITY_CHEST_BOX, community_chest_action)

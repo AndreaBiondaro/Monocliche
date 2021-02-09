@@ -1,9 +1,8 @@
 from uuid import uuid4
 from math import ceil
 
-from monocliche.src import Constants
+from monocliche.src import Constants, Exchange
 
-from monocliche.src.Exchange import Exchange
 from monocliche.src.Property import Property
 from monocliche.src.Region import Region
 
@@ -157,13 +156,3 @@ class Player:
             amount += prop.calculate_sales_value()
 
         return amount
-
-    def add_exchange(self, exchange: Exchange):
-        if self.exchanges is None:
-            self.exchanges = []
-
-        self.exchanges.append(exchange)
-
-    def remove_exchange(self, exchange: Exchange):
-        if self.exchanges is not None:
-            self.exchanges.remove(exchange)
