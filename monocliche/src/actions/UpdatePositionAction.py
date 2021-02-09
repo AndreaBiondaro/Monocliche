@@ -1,4 +1,4 @@
-from monocliche.model.AbstractAction import AbstractAction
+from monocliche.src.AbstractAction import AbstractAction
 
 
 class UpdatePositionAction(AbstractAction):

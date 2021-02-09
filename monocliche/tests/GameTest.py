@@ -1,7 +1,8 @@
 import unittest
 
-from monocliche.model.Game import Game
-from monocliche.model.enum.GameStatus import GameStatus
+from monocliche.src.Board import Board
+from monocliche.src.Game import Game
+from monocliche.src.enum.GameStatus import GameStatus
 
 
 class GameTest(unittest.TestCase):
@@ -133,6 +134,8 @@ class GameTest(unittest.TestCase):
 
     def test_roll_dice(self):
         game = Game()
+        game.board = Board()
+        game.board.initialize_board()
 
         player1 = game.add_player("One")
 

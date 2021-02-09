@@ -2,7 +2,7 @@ import unittest
 
 from monocliche.src import Constants
 
-from monocliche.model.Board import Board
+from monocliche.src.Board import Board
 
 
 class BoardTest(unittest.TestCase):

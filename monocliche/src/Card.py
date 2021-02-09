@@ -1,4 +1,4 @@
-from monocliche.model import AbstractAction
+from monocliche.src import AbstractAction
 
 
 class Card:

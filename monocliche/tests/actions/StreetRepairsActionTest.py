@@ -1,9 +1,9 @@
 import unittest
 
-from monocliche.model.Game import Game
-from monocliche.model.Region import Region
-from monocliche.model.Station import Station
-from monocliche.model.actions.StreetRepairsAction import StreetRepairsAction
+from monocliche.src.Game import Game
+from monocliche.src.Region import Region
+from monocliche.src.Station import Station
+from monocliche.src.actions.StreetRepairsAction import StreetRepairsAction
 
 
 class StreetRepairsActionTest(unittest.TestCase):

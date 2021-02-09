@@ -1,10 +1,10 @@
 import unittest
 
-from monocliche.model.Board import Board
-from monocliche.model.Box import Box
-from monocliche.model.Game import Game
-from monocliche.model.Station import Station
-from monocliche.model.actions.GoToBoxTypeAction import GoToBoxTypeAction
+from monocliche.src.Board import Board
+from monocliche.src.Box import Box
+from monocliche.src.Game import Game
+from monocliche.src.Station import Station
+from monocliche.src.actions.GoToBoxTypeAction import GoToBoxTypeAction
 
 
 class GoToBoxTypeActionTest(unittest.TestCase):

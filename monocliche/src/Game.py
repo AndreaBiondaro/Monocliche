@@ -4,12 +4,12 @@ from monocliche.src import Constants
 
 from monocliche.src.LinkedPlayers import LinkedPlayers
 from monocliche.src.Uitls import Utils
-from monocliche.model.Board import Board
-from monocliche.model.Dice import Dice
-from monocliche.model.DiceRollResult import DiceRollResult
-from monocliche.model.Player import Player
-from monocliche.model.enum.GameStatus import GameStatus
-from monocliche.model.actions.GoToJailAction import GoToJailAction
+from monocliche.src.Board import Board
+from monocliche.src.Dice import Dice
+from monocliche.src.DiceRollResult import DiceRollResult
+from monocliche.src.Player import Player
+from monocliche.src.enum.GameStatus import GameStatus
+from monocliche.src.actions.GoToJailAction import GoToJailAction
 
 
 class Game:

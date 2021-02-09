@@ -1,4 +1,4 @@
-from monocliche.model import Player
+from monocliche.src import Player
 from datetime import datetime
 
 

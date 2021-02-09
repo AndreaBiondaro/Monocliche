@@ -1,8 +1,8 @@
 import unittest
 
-from monocliche.model.Company import Company
-from monocliche.model.Game import Game
-from monocliche.model.Player import Player
+from monocliche.src.Company import Company
+from monocliche.src.Game import Game
+from monocliche.src.Player import Player
 
 
 class CompanyTest(unittest.TestCase):

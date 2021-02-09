@@ -2,10 +2,10 @@ import unittest
 
 from monocliche.src import Constants
 
-from monocliche.model.Board import Board
-from monocliche.model.Box import Box
-from monocliche.model.Game import Game
-from monocliche.model.actions.GoToJailAction import GoToJailAction
+from monocliche.src.Board import Board
+from monocliche.src.Box import Box
+from monocliche.src.Game import Game
+from monocliche.src.actions.GoToJailAction import GoToJailAction
 
 
 class GoToJailActionTest(unittest.TestCase):

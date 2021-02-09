@@ -1,6 +1,6 @@
 from typing import Any, Optional
 
-from monocliche.model.Player import Player
+from monocliche.src.Player import Player
 
 
 class Node:

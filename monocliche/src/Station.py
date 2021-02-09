@@ -1,5 +1,5 @@
-from monocliche.model import DiceRollResult
-from monocliche.model.Property import Property
+from monocliche.src import DiceRollResult
+from monocliche.src.Property import Property
 
 
 class Station(Property):

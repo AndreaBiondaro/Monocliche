@@ -1,8 +1,8 @@
 import unittest
 
-from monocliche.model.Game import Game
-from monocliche.model.Player import Player
-from monocliche.model.Station import Station
+from monocliche.src.Game import Game
+from monocliche.src.Player import Player
+from monocliche.src.Station import Station
 
 
 class StationTest(unittest.TestCase):

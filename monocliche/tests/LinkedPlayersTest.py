@@ -1,7 +1,7 @@
 import unittest
 
 from monocliche.src.LinkedPlayers import LinkedPlayers
-from monocliche.model.Player import Player
+from monocliche.src.Player import Player
 
 
 class LinkedPlayersTest(unittest.TestCase):

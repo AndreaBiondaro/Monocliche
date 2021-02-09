@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from monocliche.model import Bid
+from monocliche.src import Bid
 
 
 class Auction:

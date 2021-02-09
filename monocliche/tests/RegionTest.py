@@ -1,8 +1,8 @@
 import unittest
 
-from monocliche.model.Game import Game
-from monocliche.model.Player import Player
-from monocliche.model.Region import Region
+from monocliche.src.Game import Game
+from monocliche.src.Player import Player
+from monocliche.src.Region import Region
 
 
 class RegionTest(unittest.TestCase):

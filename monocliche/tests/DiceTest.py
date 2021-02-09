@@ -1,6 +1,6 @@
 import unittest
 
-from monocliche.model.Dice import Dice
+from monocliche.src.Dice import Dice
 
 
 class DiceTest(unittest.TestCase):

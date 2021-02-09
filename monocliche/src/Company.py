@@ -1,7 +1,8 @@
-from monocliche.model import Property, DiceRollResult
+from monocliche.src.Property import Property
+from monocliche.src import DiceRollResult
 
 
-class Company(Property.Property):
+class Company(Property):
     INCOME_MULTIPLIER = 4
     INCOME_MULTIPLIER_BOTH_COMPANY = 10
 

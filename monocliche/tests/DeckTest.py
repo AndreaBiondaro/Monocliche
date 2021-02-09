@@ -1,7 +1,7 @@
 import unittest
 
-from monocliche.model.Card import Card
-from monocliche.model.Deck import Deck
+from monocliche.src.Card import Card
+from monocliche.src.Deck import Deck
 
 
 class DeckTest(unittest.TestCase):

@@ -1,5 +1,5 @@
-from monocliche.model import Deck
-from monocliche.model.AbstractAction import AbstractAction
+from monocliche.src import Deck
+from monocliche.src.AbstractAction import AbstractAction
 
 
 class DrawCardAction(AbstractAction):

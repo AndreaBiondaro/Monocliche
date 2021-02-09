@@ -3,9 +3,9 @@ from math import ceil
 
 from monocliche.src import Constants
 
-from monocliche.model.Exchange import Exchange
-from monocliche.model.Property import Property
-from monocliche.model.Region import Region
+from monocliche.src.Exchange import Exchange
+from monocliche.src.Property import Property
+from monocliche.src.Region import Region
 
 
 class Player:

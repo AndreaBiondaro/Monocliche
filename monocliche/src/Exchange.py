@@ -1,6 +1,6 @@
 from uuid import uuid4
 
-from monocliche.model import Player, Property
+from monocliche.src import Player, Property
 
 
 class Exchange:

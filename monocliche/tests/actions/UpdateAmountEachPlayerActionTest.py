@@ -1,7 +1,7 @@
 import unittest
 
-from monocliche.model.Game import Game
-from monocliche.model.actions.UpdateAmountEachPlayerAction import UpdateAmountEachPlayerAction
+from monocliche.src.Game import Game
+from monocliche.src.actions.UpdateAmountEachPlayerAction import UpdateAmountEachPlayerAction
 
 
 class UpdateAmountEachPlayerActionTest(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 
-from monocliche.model.DiceRollResult import DiceRollResult
+from monocliche.src.DiceRollResult import DiceRollResult
 
 
 class DiceRollResultTest(unittest.TestCase):

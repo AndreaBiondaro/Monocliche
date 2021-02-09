@@ -1,8 +1,8 @@
 import unittest
 
-from monocliche.model.Card import Card
-from monocliche.model.Deck import Deck
-from monocliche.model.actions.DrawCardAction import DrawCardAction
+from monocliche.src.Card import Card
+from monocliche.src.Deck import Deck
+from monocliche.src.actions.DrawCardAction import DrawCardAction
 
 
 class DrawCardActionTest(unittest.TestCase):

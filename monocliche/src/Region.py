@@ -1,7 +1,7 @@
 from monocliche.src import Constants
 
-from monocliche.model.Property import Property
-from monocliche.model import DiceRollResult
+from monocliche.src.Property import Property
+from monocliche.src import DiceRollResult
 
 
 class Region(Property):

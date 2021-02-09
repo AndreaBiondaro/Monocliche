@@ -1,6 +1,6 @@
 from monocliche.src import Constants
 
-from monocliche.model.actions.GoToBoxAction import GoToBoxAction
+from monocliche.src.actions.GoToBoxAction import GoToBoxAction
 
 
 class GoToBoxTypeAction(GoToBoxAction):

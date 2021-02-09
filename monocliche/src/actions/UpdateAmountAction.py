@@ -1,6 +1,6 @@
 from monocliche.src import Constants
 
-from monocliche.model.AbstractAction import AbstractAction
+from monocliche.src.AbstractAction import AbstractAction
 
 
 class UpdateAmountAction(AbstractAction):

@@ -1,7 +1,7 @@
 import unittest
 
-from monocliche.model.Game import Game
-from monocliche.model.actions.OutOfJailFreeAction import OutOfJailFreeAction
+from monocliche.src.Game import Game
+from monocliche.src.actions.OutOfJailFreeAction import OutOfJailFreeAction
 
 
 class OutOfJailFreeActionTest(unittest.TestCase):

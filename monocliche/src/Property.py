@@ -3,8 +3,8 @@ from typing import Optional
 
 from monocliche.src import Constants
 
-from monocliche.model.Box import Box
-from monocliche.model import Player, DiceRollResult
+from monocliche.src.Box import Box
+from monocliche.src import Player, DiceRollResult
 
 
 class Property(Box):

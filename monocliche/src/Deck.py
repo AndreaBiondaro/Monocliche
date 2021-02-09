@@ -1,6 +1,6 @@
 from random import shuffle
 
-from monocliche.model import Card
+from monocliche.src import Card
 
 
 class Deck:

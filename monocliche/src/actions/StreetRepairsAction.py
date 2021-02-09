@@ -1,7 +1,7 @@
 from monocliche.src import Constants
 
-from monocliche.model.Region import Region
-from monocliche.model.AbstractAction import AbstractAction
+from monocliche.src.Region import Region
+from monocliche.src.AbstractAction import AbstractAction
 
 
 class StreetRepairsAction(AbstractAction):

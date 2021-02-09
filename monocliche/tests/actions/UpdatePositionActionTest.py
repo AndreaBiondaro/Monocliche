@@ -1,7 +1,7 @@
 import unittest
 
-from monocliche.model.Game import Game
-from monocliche.model.actions.UpdatePositionAction import UpdatePositionAction
+from monocliche.src.Game import Game
+from monocliche.src.actions.UpdatePositionAction import UpdatePositionAction
 
 
 class UpdatePositionActionTest(unittest.TestCase):

@@ -2,24 +2,24 @@ from typing import Optional
 
 from monocliche.src import Constants
 
-from monocliche.model.Box import Box
-from monocliche.model.Deck import Deck
-from monocliche.model.Auction import Auction
-from monocliche.model.ActionBox import ActionBox
-from monocliche.model.Region import Region
-from monocliche.model.Station import Station
-from monocliche.model.Company import Company
-from monocliche.model.Card import Card
+from monocliche.src.Box import Box
+from monocliche.src.Deck import Deck
+from monocliche.src.Auction import Auction
+from monocliche.src.ActionBox import ActionBox
+from monocliche.src.Region import Region
+from monocliche.src.Station import Station
+from monocliche.src.Company import Company
+from monocliche.src.Card import Card
 
-from monocliche.model.actions.DrawCardAction import DrawCardAction
-from monocliche.model.actions.GoToBoxAction import GoToBoxAction
-from monocliche.model.actions.GoToBoxTypeAction import GoToBoxTypeAction
-from monocliche.model.actions.GoToJailAction import GoToJailAction
-from monocliche.model.actions.OutOfJailFreeAction import OutOfJailFreeAction
-from monocliche.model.actions.StreetRepairsAction import StreetRepairsAction
-from monocliche.model.actions.UpdateAmountAction import UpdateAmountAction
-from monocliche.model.actions.UpdateAmountEachPlayerAction import UpdateAmountEachPlayerAction
-from monocliche.model.actions.UpdatePositionAction import UpdatePositionAction
+from monocliche.src.actions.DrawCardAction import DrawCardAction
+from monocliche.src.actions.GoToBoxAction import GoToBoxAction
+from monocliche.src.actions.GoToBoxTypeAction import GoToBoxTypeAction
+from monocliche.src.actions.GoToJailAction import GoToJailAction
+from monocliche.src.actions.OutOfJailFreeAction import OutOfJailFreeAction
+from monocliche.src.actions.StreetRepairsAction import StreetRepairsAction
+from monocliche.src.actions.UpdateAmountAction import UpdateAmountAction
+from monocliche.src.actions.UpdateAmountEachPlayerAction import UpdateAmountEachPlayerAction
+from monocliche.src.actions.UpdatePositionAction import UpdatePositionAction
 
 
 class Board:
@@ -130,10 +130,10 @@ class Board:
                         UpdateAmountEachPlayerAction(-50))
         cards[4] = Card(Constants.CHANCE_CARD_NAME, Constants.CARD_BACK_THREE_SPACES, UpdatePositionAction(-3))
         cards[5] = Card(Constants.CHANCE_CARD_NAME, Constants.CARD_ADVANCE_TO_UTILITY,
-                        GoToBoxTypeAction(type(Company)))
+                        GoToBoxTypeAction(Company))
         cards[6] = Card(Constants.CHANCE_CARD_NAME, Constants.CARD_BANK_PAYS, UpdateAmountAction(50))
         cards[7] = Card(Constants.CHANCE_CARD_NAME, Constants.CARD_ADVANCE_TO_RAILROAD,
-                        GoToBoxTypeAction(type(Station)))
+                        GoToBoxTypeAction(Station))
         cards[8] = Card(Constants.CHANCE_CARD_NAME, Constants.CARD_PAY_POOR_TAX, UpdateAmountAction(-15))
         cards[9] = Card(Constants.CHANCE_CARD_NAME, Constants.CARD_ADVANCE_TO_FENCHURCH_STATION,
                         GoToBoxAction(self.boxes[25].id))
@@ -146,7 +146,7 @@ class Board:
         cards[13] = Card(Constants.CHANCE_CARD_NAME, Constants.CARD_LOAN_MATURE, UpdateAmountAction(150))
         cards[14] = Card(Constants.CHANCE_CARD_NAME, Constants.CARD_GO_TO_JAIL, GoToJailAction())
         cards[15] = Card(Constants.CHANCE_CARD_NAME, Constants.CARD_ADVANCE_TO_RAILROAD,
-                         GoToBoxTypeAction(type(Station)))
+                         GoToBoxTypeAction(Station))
 
         deck = Deck(cards)
         deck.shuffle()

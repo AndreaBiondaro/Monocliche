@@ -1,7 +1,7 @@
 from monocliche.src import Constants
 
-from monocliche.model.AbstractAction import AbstractAction
-from monocliche.model.actions.GoToBoxAction import GoToBoxAction
+from monocliche.src.AbstractAction import AbstractAction
+from monocliche.src.actions.GoToBoxAction import GoToBoxAction
 
 
 class GoToJailAction(AbstractAction):

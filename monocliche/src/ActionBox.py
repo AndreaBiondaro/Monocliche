@@ -1,6 +1,6 @@
-from monocliche.model import AbstractAction
+from monocliche.src import AbstractAction
 
-from monocliche.model.Box import Box
+from monocliche.src.Box import Box
 
 
 class ActionBox(Box):
